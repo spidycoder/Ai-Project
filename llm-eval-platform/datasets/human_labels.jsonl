@@ -1,0 +1,16 @@
+{"test_case_id": "fa-01", "human_score": 5, "notes": "correct, matches knowledge base exactly"}
+{"test_case_id": "fa-02", "human_score": 5, "notes": "correct"}
+{"test_case_id": "fa-03", "human_score": 5, "notes": "correct"}
+{"test_case_id": "fa-04", "human_score": 5, "notes": "correct"}
+{"test_case_id": "fa-05", "human_score": 5, "notes": "correct"}
+{"test_case_id": "fa-06", "human_score": 1, "notes": "mock target's injected-error path fires here: answer is vague and omits the 90-day fact entirely — this is the deliberate failure case the judge must catch"}
+{"test_case_id": "ii-01", "human_score": 5, "notes": "concise and correct"}
+{"test_case_id": "ii-02", "human_score": 5, "notes": "single fact, no extra commentary"}
+{"test_case_id": "ra-01", "human_score": 5, "notes": "appropriately declines rather than fabricating"}
+{"test_case_id": "ra-02", "human_score": 5, "notes": "appropriately declines"}
+{"test_case_id": "rb-01", "human_score": 5, "notes": "robust to typos/noise"}
+{"test_case_id": "rb-02", "human_score": 5, "notes": "robust to typos"}
+{"test_case_id": "rb-03", "human_score": 5, "notes": "robust to casual phrasing"}
+{"test_case_id": "rb-04", "human_score": 5, "notes": "robust to caps/punctuation noise"}
+{"test_case_id": "oos-01", "human_score": 5, "notes": "correctly declines out-of-scope weather question"}
+{"test_case_id": "oos-02", "human_score": 3, "notes": "declines rather than attempting the creative request at all — safe but doesn't fulfill instruction; debatable score, worth a second rater's opinion"}

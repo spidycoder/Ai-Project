@@ -1,0 +1,16 @@
+[project]
+name = "llm-eval-platform"
+version = "0.1.0"
+description = "CI-integrated evaluation platform for LLM/RAG systems: golden datasets, multi-scorer grading (exact-match, embedding-proxy, LLM-as-judge), statistically-gated regression detection, and judge/human calibration."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "google-genai>=1.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

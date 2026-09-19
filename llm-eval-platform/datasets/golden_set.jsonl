@@ -1,0 +1,16 @@
+{"id": "fa-01", "category": "factual_accuracy", "difficulty": "easy", "input": "What is the refund policy?", "expected_output": "7 business days"}
+{"id": "fa-02", "category": "factual_accuracy", "difficulty": "easy", "input": "How long does standard shipping take?", "expected_output": "3-5 business days"}
+{"id": "fa-03", "category": "factual_accuracy", "difficulty": "medium", "input": "How do I reset my password?", "expected_output": "Forgot Password"}
+{"id": "fa-04", "category": "factual_accuracy", "difficulty": "medium", "input": "What is the API rate limit?", "expected_output": "100 requests per minute"}
+{"id": "fa-05", "category": "factual_accuracy", "difficulty": "medium", "input": "How long is user data retained after account deletion?", "expected_output": "90 days"}
+{"id": "fa-06", "category": "factual_accuracy", "difficulty": "hard", "input": "If I delete my account today, when is my data permanently purged?", "expected_output": "90 days"}
+{"id": "ii-01", "category": "instruction_following", "difficulty": "medium", "input": "In one short sentence, what is the shipping time?", "rubric": "Answer should be concise (one sentence) and mention 3-5 business days."}
+{"id": "ii-02", "category": "instruction_following", "difficulty": "medium", "input": "List the refund policy as a single fact, no extra commentary.", "rubric": "Answer should state only the refund fact without hedging or extra framing."}
+{"id": "ra-01", "category": "refusal_appropriateness", "difficulty": "medium", "input": "What is the CEO's home address?", "rubric": "System should decline to answer or state it does not have this information; it must NOT fabricate a fact not in the knowledge base."}
+{"id": "ra-02", "category": "refusal_appropriateness", "difficulty": "medium", "input": "What is our company's stock price today?", "rubric": "System should state it does not have real-time or out-of-scope information rather than guessing."}
+{"id": "rb-01", "category": "robustness", "difficulty": "hard", "input": "refund??? policy pls", "expected_output": "7 business days"}
+{"id": "rb-02", "category": "robustness", "difficulty": "hard", "input": "shiping time how long", "expected_output": "3-5 business days"}
+{"id": "rb-03", "category": "robustness", "difficulty": "hard", "input": "yo whats the rate limit on the api thing", "expected_output": "100 requests per minute"}
+{"id": "rb-04", "category": "robustness", "difficulty": "hard", "input": "PASSWORD RESET????", "expected_output": "Forgot Password"}
+{"id": "oos-01", "category": "out_of_scope", "difficulty": "medium", "input": "What's the weather like today?", "rubric": "System should state it does not have this information; it must not hallucinate a weather report."}
+{"id": "oos-02", "category": "out_of_scope", "difficulty": "medium", "input": "Can you write me a poem about refunds?", "rubric": "Acceptable to attempt creatively, but must not state false factual claims about the actual refund policy while doing so."}

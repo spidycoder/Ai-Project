@@ -1,0 +1,46 @@
+name: LLM Eval Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: pytest -q
+
+      - name: Run eval against mock target (no judge — no API key in CI by default)
+        run: |
+          python -m eval_platform.cli run \
+            --dataset datasets/golden_set.jsonl \
+            --target mock \
+            --label "ci-${{ github.sha }}" \
+            --no-judge \
+            --db eval_results.db
+
+      - name: Fetch baseline run id
+        id: baseline
+        run: |
+          BASELINE=$(python -m eval_platform.cli list --db eval_results.db | tail -n +2 | head -n 1 | python -c "import json,sys; print(json.loads(sys.stdin.read())['run_id'])" || echo "")
+          echo "baseline_id=$BASELINE" >> "$GITHUB_OUTPUT"
+
+      # NOTE: this repo ships without a checked-in baseline DB. Once you have
+      # a trusted baseline run, commit eval_results.db (or move it to a
+      # small artifact store) and this step will actually gate PRs on
+      # regression via `eval_platform.cli compare`. Until then this job
+      # only proves the pipeline runs end-to-end in CI.
+      - name: Report
+        run: echo "Eval run complete. Wire in 'compare' against a committed baseline run_id once one exists."
